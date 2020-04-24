@@ -10,6 +10,7 @@
 #include <fstream>
 #include "BST312.h"
 
+
 using namespace std;
 
 template <typename T>
@@ -20,7 +21,7 @@ void print(vector<T> vec){
 }
 
 int main() {
-
+    int nodes;
     ifstream inFile;
     inFile.open("test.txt");
 
@@ -34,8 +35,8 @@ int main() {
         inFile >> s;
     }
 
-
-    cout << "number of nodes is " << bst.countNodes() << endl;
+    nodes = bst.countNodes();
+    cout << "number of nodes is " << nodes << endl;
 
     cout << "postorder traversal is " << endl;
     print(bst.postOrderTraversal());
@@ -47,17 +48,18 @@ int main() {
 
     cout << "inorder traversal is " << endl;
     print(bst.inOrderTraversal());
+
     cout << endl;
 
-//    cout << "Remove items " << endl;
-//    cout << "number of nodes in tree before delete is " << bst.countNodes() << endl;
-//    s = "tree";
-//    bst.deleteItem(s);
-//   print(bst.postOrderTraversal());
-//    cout << endl;
-//    cout << "number of nodes in tree after delete is " << bst.countNodes() << endl;
+    cout << "Remove items " << endl;
+    cout << "number of nodes in tree before delete is " << bst.countNodes() << endl;
+    s = "tree";
+    bst.deleteItem(s);
+    print(bst.postOrderTraversal());
     cout << endl;
-    bool i = bst.isItemInTree("allowww");
+    cout << "number of nodes in tree after delete is " << bst.countNodes() << endl;
+    cout << endl;
+    bool i = bst.isItemInTree("is");
             if(i)
             {
                 cout << "true" << endl;
@@ -66,5 +68,7 @@ int main() {
             }
 
     bst.makeEmpty();
+    cout << "inorder traversal is " << endl;
+    print(bst.inOrderTraversal());
 }
 
